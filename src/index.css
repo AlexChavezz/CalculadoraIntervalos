@@ -1,0 +1,185 @@
+*{
+    padding:0px;
+    margin: 0px;
+    background-color:#f8f5f2;
+    box-sizing: border-box;
+}
+.btn
+{
+    background:#078080;
+    border: none;
+    cursor:pointer;
+    color:#232323;
+    padding:5px;
+}
+.container
+{
+    width:1200px;
+}
+.page
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0px auto;
+    flex-direction: column;
+    height: 100vh;
+    width:100vw;
+}
+.page .container article
+{
+    display: flex;
+    justify-content: center;
+}
+.page .container article h2
+{
+    color:#232323;
+    font-size:20px;
+    font-family:Arial,sans-serif;
+}
+.page .container section input[type="number"]
+{
+    color:#222525;
+    border: 1px solid #ccc;
+    border-radius:2px;
+    padding:5px;
+    margin:5px;
+    outline:none;
+}
+.page .container section input[type="submit"]
+{
+    
+    width:100px;
+}
+/* table
+{
+    width:100%;
+}
+table, th, td 
+{
+    border:1px solid black; 
+    border-collapse: collapse;
+} */
+section
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.table-frecuencia
+{
+    width:600px;
+    border:1px solid #ccc;
+}
+.table-results
+{
+    width:600px;
+}
+.table-results tr th, td
+{
+    border:1px solid #ccc;
+    text-align: center;
+}
+.table-results > tbody > tr > td, .table-results > thead > tr > th
+{
+    padding:5px;
+}
+.btn-next
+{
+    display:block;
+    margin: 20px;
+    width:200px;
+}
+.btn-see-more
+{
+    margin: 20px;
+    width:200px;
+}
+/*
+ALERT
+*/
+
+.alert 
+{
+    position: absolute;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    top:100px;
+    left:25%;
+    right:25%;
+    width: 50%;
+    height:40px;
+}
+.alert-danger
+{
+    animation: animation-alert 200ms linear;
+    color: #842029;
+    background-color: #f8d7da;
+    border:1px solid #f5c2c7;
+    border-radius: 10px;
+    font-family:Arial,sans-serif;
+}
+.modal
+{
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top:0px;
+    bottom: 0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    background-color: rgb(71, 69, 69, .5);
+}
+.article
+{
+    animation: modal-animation 300ms linear;
+    border-radius:10px;
+    position:relative;
+    height:400px;
+    width:600px;
+}
+.article img 
+{
+    position: absolute;
+    right:10px;
+    top:10px;
+    cursor: pointer;
+}
+.article > div
+{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height: 100%;
+}
+.article div table
+{
+    width:80%;
+}
+.article div table td
+{
+    padding:5px;
+}
+@keyframes modal-animation {
+    from{
+        opacity: 0;
+        transform: translateY(-100px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes animation-alert{
+    from{
+        opacity: 0;
+        transform: translateY(-20px);
+    }to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
