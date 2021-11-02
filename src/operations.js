@@ -38,11 +38,10 @@ export const getFra = ( fr ) => {
     return fra.reverse();
 }
 
-export const getMediaAritmetica = ({ frecuencia }, mc, fa) => {
+export const getMediaAritmetica = ({ frecuencia }, mc) => {
     const frecuenciaCopy = frecuencia.slice(0);
     const mcCopy = mc.slice(0);
-    const faCopy = fa.slice(0);
-    const n = faCopy[0];
+    const n = getN(frecuencia);
     let fXmc = [];
     let sumaFXMc = 0;
     for (let i = 0; i <= frecuenciaCopy.length - 1; i++) {
@@ -87,10 +86,45 @@ export const getMediana = ({minValues, maxValues, frecuencia}, i, fa) => {
     const fa2 = fa[i+1] - 1;
     const fi = frecuencia[i];
     const ai = (maxValues[i] - minValues[i]) + 1;
-    const n = fa[0] / 2;
+    const n = getN(frecuencia) / 2;
     const div = n - fa2;
     const medianaOne =  div / fi ;
     const medianaTwo = medianaOne * ai
     const mediana = li + medianaTwo;
     return mediana;
+}
+
+export const getMediaGeometrica = ({frecuencia}, mc) => {
+    let mediaGeometricaRes;
+    let mcXFi = [];
+    for (let i = 0; i < frecuencia.length; i++) {
+        mcXFi = [...mcXFi, Math.log10(mc[i]) * frecuencia[i] ];
+    }
+    let suma = 0;
+    for (let i = 0; i < mcXFi.length; i++) {
+        suma += mcXFi[i];
+    }
+    const n = getN(frecuencia);
+    return mediaGeometricaRes =  Math.pow(10, suma / n);
+}
+
+export const getMediaArmonica = ({frecuencia}, mc) => {
+    const n = getN(frecuencia);
+    const frecuenciaCopy = frecuencia.slice(0);
+    let fiEntreMc = [];
+    for (let i = 0; i < frecuenciaCopy.length; i++) {
+        fiEntreMc = [ ...fiEntreMc, frecuenciaCopy[i] / mc[i] ];
+    }
+    let suma = 0;
+    for (let i = 0; i < fiEntreMc.length; i++) {
+        suma += fiEntreMc[i];
+    }
+    return n / suma;
+}
+const getN = (frecuancia) => {
+    let suma = 0;
+    frecuancia.forEach(n => {
+        suma += n;
+    })
+    return suma;
 }

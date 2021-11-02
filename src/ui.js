@@ -6,6 +6,8 @@ import {
     getMediaAritmetica,
     getModa,
     getMediana,
+    getMediaGeometrica,
+    getMediaArmonica
 } from './operations.js';
 export const createAlert = (type, text) => {
     const divElement = document.createElement('div');
@@ -52,11 +54,12 @@ export const lastStep = (values) => {
     const fa = getFa(values);
     const fr = getFr(values, fa);
     const fra = getFra(fr);
-    const mediaAritmetica = getMediaAritmetica(values, mc, fa);
+    const mediaAritmetica = getMediaAritmetica(values, mc);
     // getModa(values, mc);
     const { moda, indice } = getModa(values, mc);
     const mediana = getMediana(values, indice, fa);
-
+    const mediaGeometrica = getMediaGeometrica(values, mc);
+    const mediaArmonica = getMediaArmonica(values, mc);
     let rows = '';
     for (let i = 0; i <= values.minValues.length - 1; i++) {
         rows = rows + `
@@ -100,7 +103,7 @@ export const lastStep = (values) => {
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-see-more" onclick="showModal(${mediaAritmetica}, ${moda}, ${mediana})">Ver más</button>
+    <button class="btn btn-see-more" onclick="showModal(${mediaAritmetica}, ${moda}, ${mediana}, ${mediaGeometrica}, ${mediaArmonica})">Ver más</button>
     `;
     document.querySelector('section').innerHTML = content;
 }

@@ -1,9 +1,9 @@
-const showModal = (mediaAritmetica, moda, mediana) => {
+const showModal = (mediaAritmetica, moda, mediana, mediaGeometrica, mediaArmonica) => {
 
     const mediaAritmeticaCopy = mediaAritmetica;
     const modaCopy = moda;
     const medianaCopy = mediana;
-    document.querySelector('.modal').style.visibility = 'visible';
+    document.querySelector('.modal').style.display = 'flex';
 
     document.querySelector('.modal-res').innerHTML = `
     <table>
@@ -20,10 +20,18 @@ const showModal = (mediaAritmetica, moda, mediana) => {
                 <td>Mediana</td>
                 <td>${medianaCopy}</td>
             </tr>
+            <tr>
+                <td>Media Geometrica</td>
+                <td>${mediaGeometrica}</td>
+            </tr>
+            <tr>
+            <td>Media Armonica</td>
+            <td>${mediaArmonica}</td>
+        </tr>
         </tbody>
     </table>
 `;  
 }
 const handleHidden = () => {
-    document.querySelector('.modal').style.visibility = 'hidden';
+    document.querySelector('.modal').style.display = 'none';
 }
